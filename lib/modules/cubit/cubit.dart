@@ -130,7 +130,7 @@ class NewsCubit extends Cubit<NewsStates> {
     });
   }
 
-  bool isDark = false;
+  bool isDark = true;
 
   void changeAppMode({bool? fromShared}) {
     if (fromShared != null) {

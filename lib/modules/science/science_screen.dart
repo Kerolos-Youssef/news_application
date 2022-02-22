@@ -9,6 +9,7 @@ class ScienceScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NewsCubit.get(context).getScience();
     var list = NewsCubit.get(context).science;
     return BlocConsumer<NewsCubit, NewsStates>(
       builder: (context, state) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/modules/cubit/cubit.dart';
 import 'package:news/modules/cubit/states.dart';
 import 'package:news/shared/components.dart';
@@ -23,7 +24,10 @@ class _SearchScreenState extends State<SearchScreen> {
           body: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.all(25),
+                padding: EdgeInsets.symmetric(
+                  vertical: 25.h,
+                  horizontal: 25.w,
+                ),
                 child: defaultTextFormField(
                   isDark: NewsCubit.get(context).isDark,
                   controller: NewsCubit.get(context).searchController,

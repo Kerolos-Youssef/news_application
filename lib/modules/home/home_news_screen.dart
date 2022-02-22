@@ -14,6 +14,7 @@ class HomeNewsScreen extends StatefulWidget {
 class _HomeNewsScreenState extends State<HomeNewsScreen> {
   @override
   Widget build(BuildContext context) {
+    NewsCubit.get(context).getGeneralNews();
     var list = NewsCubit.get(context).generalNews;
     return BlocConsumer<NewsCubit, NewsStates>(
       builder: (context, state) {

@@ -9,6 +9,7 @@ class BusinessScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    NewsCubit.get(context).getBusiness();
     var list = NewsCubit.get(context).business;
     return BlocConsumer<NewsCubit, NewsStates>(
       builder: (context, state) {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:news/modules/web_view/web_view_screen.dart';
 
 Widget buildArticleItem({required BuildContext context, required article}) {
-  double height = MediaQuery.of(context).size.height;
-  double width = MediaQuery.of(context).size.width;
   return Padding(
-    padding: const EdgeInsets.all(15),
+    padding: EdgeInsets.symmetric(
+      vertical: 12.h,
+      horizontal: 12.w,
+    ),
     child: InkWell(
       onTap: () {
         Navigator.of(context).push(
@@ -19,11 +21,11 @@ Widget buildArticleItem({required BuildContext context, required article}) {
       child: Row(
         children: [
           Container(
-            height: height * 0.15,
-            width: width * 0.37,
+            height: 105.h,
+            width: 145.w,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(
-                width * 0.02,
+                10.r,
               ),
               image: DecorationImage(
                 image: NetworkImage(
@@ -36,11 +38,11 @@ Widget buildArticleItem({required BuildContext context, required article}) {
             ),
           ),
           SizedBox(
-            width: width * 0.035,
+            width: 7.w,
           ),
           Expanded(
             child: Container(
-              height: height * 0.1,
+              height: 100.h,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,19 +50,22 @@ Widget buildArticleItem({required BuildContext context, required article}) {
                   Expanded(
                     child: Text(
                       '${article['title']}',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline6?.copyWith(
+                            height: 1.5.h,
+                            fontSize: 19.sp,
+                          ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 2,
                       // textDirection: TextDirection.rtl,
                     ),
                   ),
                   SizedBox(
-                    height: height * 0.001,
+                    height: 1.h,
                   ),
                   Text(
-                    '${article['publishedAt']}',
+                    '${(article['publishedAt'])}',
                     style: TextStyle(
-                      fontSize: width * 0.04,
+                      fontSize: 15.sp,
                       fontWeight: FontWeight.w500,
                       color: Colors.grey,
                     ),
@@ -77,10 +82,13 @@ Widget buildArticleItem({required BuildContext context, required article}) {
 
 Widget separator() {
   return Padding(
-    padding: const EdgeInsets.all(10),
+    padding: EdgeInsets.symmetric(
+      vertical: 8.h,
+      horizontal: 8.w,
+    ),
     child: Container(
       color: Colors.grey,
-      height: 1,
+      height: 1.8.h,
     ),
   );
 }
